@@ -224,6 +224,37 @@ In this step, I'll show you how you can store the source code of the React app o
 
     > I recommend exploring the GitHub repository at this point. It will have two branches: `master` and `gh-pages`. The `master` branch will contain the React app's source code, while the `gh-pages` branch will contain the distributable version of the React app.
 
+### TROUBLESHOOTING
+
+Incase of an 404, index.js not found error : 
+
+1. npm install react-router-dom --save
+1. In your index.js:
+
+`import { HashRouter } from "react-router-dom";`
+
+Change `<BrowserRouter>` to `</HashRouter>`  
+
+Your page index.js should look similar to this : 
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { HashRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>  
+  </React.StrictMode>
+);
+```
+
+
+
 # References
 
 1. [The official `create-react-app` deployment guide](https://create-react-app.dev/docs/deployment/#github-pages)
